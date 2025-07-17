@@ -1,0 +1,1 @@
+Calculadora de estatística web oferece cálculos comuns, tamanho da amostra e intervalo de confiança. Destaca-se por suas animações 3D fluidas ao alternar entre funções, proporcionando uma experiência de usuário moderna e interativa. Desenvolvida com HTML, CSS e JavaScript.
