@@ -1,0 +1,208 @@
+
+body {
+  margin: 0;                  
+  height: 100vh;             
+  display: flex;             
+  justify-content: center;   
+  align-items: center;      
+  font-family: 'Segoe UI', sans-serif; 
+  background-color: #000;    
+}
+
+
+
+
+/*  Painel lateral de fórmulas  */
+.formulas-panel {
+  background-color: #fff;    
+  border-radius: 8px;        
+  padding: 16px;             
+  width: 240px;              
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  margin-left: 160px;        
+}
+
+
+
+/* Remove margem superior do título dentro do painel */
+.formulas-panel h2 {
+  margin-top: 0;
+}
+
+
+
+/*  Container principal (3D) */
+.scene {
+  width: 300px;             
+  height: 500px;            
+  perspective: 1200px;      
+  perspective-origin: center;
+  position: relative;        
+  z-index: 1;                
+}
+
+/* Cubo rotativo com as 3 faces */
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;        
+  transform-style: preserve-3d; 
+  transform: translateZ(-150px); 
+  transition: transform 1s ease; 
+}
+
+/* === Faces do cubo === */
+/* Cada face é posicionada em 3D ao redor do eixo Y */
+.face {
+  position: absolute;       
+  width: 100%;
+  height: 100%;
+  padding: 20px;           
+  box-sizing: border-box;   
+  border-radius: 20px;      
+  background-color: #fff;    
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); 
+  backface-visibility: hidden; 
+  transform-style: preserve-3d;
+}
+
+
+/* Posições das faces rotacionadas */
+.basica  { transform: rotateY(0deg)   translateZ(150px); }
+.amostra { transform: rotateY(120deg) translateZ(150px); }
+.ic      { transform: rotateY(240deg) translateZ(150px); }
+
+
+/* Visor de texto (display) */
+.display {
+  background-color: #c9c9c941; 
+  color: #000;              
+  font-size: 1.5em;         
+  padding: 15px;             
+  border-radius: 10px;       
+  text-align: center;        
+  margin-bottom: 15px;       
+  overflow-x: auto;          
+}
+
+/* Layout de botões básicos */
+.buttons {
+  display: grid;            
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 10px;                 
+}
+
+/* Estilo padrão de todos os botões */
+button {
+  font-size: 1.2em;
+  padding: 10px;
+  background-color: #fff;    
+  border: 1px solid #ccc;   
+  border-radius: 10px;
+  color: #000;               
+  box-shadow: 0 4px rgba(0, 0, 0, 0.1); 
+  cursor: pointer;
+  transition: background-color 0.1s, transform 0.1s; 
+}
+
+/* Estado pressionado do botão */
+button:active {
+  background-color: #f0f0f0; 
+  transform: scale(0.95);   
+}
+
+/*  Botoes de rotação do cubo  */
+.controls {
+  margin-top: 20px;
+  display: flex;            
+  justify-content: space-between;
+  flex-wrap: wrap;           
+  gap: 10px;
+}
+
+.controls button {
+  background-color: #f5f5f5; 
+  color: #000;
+  border: 1px solid #ccc;
+}
+
+.controls button:hover {
+  background-color: #e8e8e8; 
+}
+
+.controls button:active {
+  background-color: #dcdcdc; 
+}
+
+/* Botões de calcular/limpar nas faces de amostra e IC */
+.sample-buttons {
+  display: flex;
+  gap: 10px;                
+  margin-top: 20px;
+}
+
+.sample-buttons button {
+  flex: 1;                  
+  font-size: 1.1em;
+  padding: 12px;
+}
+
+/* Estilo específico para botão "Limpar" */
+.sample-clear {
+  background-color: #fff;
+  border-color: #f00;       
+}
+.sample-clear:hover {
+  background-color: #fee;   
+}
+
+/* Inputs e selects gerais */
+/* Campos de entrada e dropdowns uniformizados */
+input, select {
+  width: 100%;             
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #000;
+}
+
+/* Menus flutuantes para escolher tipo de cálculo */
+#ic-tipo-menu,
+#amostra-tipo-menu {
+  display: none;            
+  position: absolute;
+  top: 20px;
+  left: 121.5%;             
+  transform: translateX(-50%);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 100;            
+}
+
+/* Botões dentro dos menus de seleção */
+#ic-tipo-menu button,
+#amostra-tipo-menu button {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Remove margem do último botão */
+#ic-tipo-menu button:last-child,
+#amostra-tipo-menu button:last-child {
+  margin-bottom: 0;
+}
+
+/* Feedback visual ao passar o mouse */
+#ic-tipo-menu button:hover,
+#amostra-tipo-menu button:hover {
+  background-color: #f0f0f0;
+}
