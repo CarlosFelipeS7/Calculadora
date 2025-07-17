@@ -12,7 +12,7 @@ body {
 
 
 
-/*  Painel lateral de fórmulas  */
+
 .formulas-panel {
   background-color: #fff;    
   border-radius: 8px;        
@@ -24,14 +24,12 @@ body {
 
 
 
-/* Remove margem superior do título dentro do painel */
 .formulas-panel h2 {
   margin-top: 0;
 }
 
 
 
-/*  Container principal (3D) */
 .scene {
   width: 300px;             
   height: 500px;            
@@ -41,7 +39,6 @@ body {
   z-index: 1;                
 }
 
-/* Cubo rotativo com as 3 faces */
 .cube {
   width: 100%;
   height: 100%;
@@ -51,8 +48,7 @@ body {
   transition: transform 1s ease; 
 }
 
-/* === Faces do cubo === */
-/* Cada face é posicionada em 3D ao redor do eixo Y */
+
 .face {
   position: absolute;       
   width: 100%;
@@ -67,13 +63,12 @@ body {
 }
 
 
-/* Posições das faces rotacionadas */
+
 .basica  { transform: rotateY(0deg)   translateZ(150px); }
 .amostra { transform: rotateY(120deg) translateZ(150px); }
 .ic      { transform: rotateY(240deg) translateZ(150px); }
 
 
-/* Visor de texto (display) */
 .display {
   background-color: #c9c9c941; 
   color: #000;              
@@ -85,14 +80,12 @@ body {
   overflow-x: auto;          
 }
 
-/* Layout de botões básicos */
 .buttons {
   display: grid;            
   grid-template-columns: repeat(4, 1fr); 
   gap: 10px;                 
 }
 
-/* Estilo padrão de todos os botões */
 button {
   font-size: 1.2em;
   padding: 10px;
@@ -105,13 +98,13 @@ button {
   transition: background-color 0.1s, transform 0.1s; 
 }
 
-/* Estado pressionado do botão */
+
 button:active {
   background-color: #f0f0f0; 
   transform: scale(0.95);   
 }
 
-/*  Botoes de rotação do cubo  */
+
 .controls {
   margin-top: 20px;
   display: flex;            
@@ -134,7 +127,6 @@ button:active {
   background-color: #dcdcdc; 
 }
 
-/* Botões de calcular/limpar nas faces de amostra e IC */
 .sample-buttons {
   display: flex;
   gap: 10px;                
@@ -147,7 +139,7 @@ button:active {
   padding: 12px;
 }
 
-/* Estilo específico para botão "Limpar" */
+
 .sample-clear {
   background-color: #fff;
   border-color: #f00;       
@@ -156,8 +148,7 @@ button:active {
   background-color: #fee;   
 }
 
-/* Inputs e selects gerais */
-/* Campos de entrada e dropdowns uniformizados */
+
 input, select {
   width: 100%;             
   padding: 5px;
@@ -168,7 +159,7 @@ input, select {
   color: #000;
 }
 
-/* Menus flutuantes para escolher tipo de cálculo */
+
 #ic-tipo-menu,
 #amostra-tipo-menu {
   display: none;            
@@ -183,7 +174,7 @@ input, select {
   z-index: 100;            
 }
 
-/* Botões dentro dos menus de seleção */
+
 #ic-tipo-menu button,
 #amostra-tipo-menu button {
   display: block;
@@ -195,13 +186,12 @@ input, select {
   border-radius: 4px;
 }
 
-/* Remove margem do último botão */
+
 #ic-tipo-menu button:last-child,
 #amostra-tipo-menu button:last-child {
   margin-bottom: 0;
 }
 
-/* Feedback visual ao passar o mouse */
 #ic-tipo-menu button:hover,
 #amostra-tipo-menu button:hover {
   background-color: #f0f0f0;

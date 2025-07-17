@@ -8,17 +8,17 @@
 </head>
 
 <body>
-  <!-- Container 3D  para o cubo de interfaces -->
+  
   <div class="scene">
     <div class="cube" id="cube">
       
       
-      <!-- === Face 1: Calculadora Básica === -->
+    
       <div class="face basica"> 
-        <!-- Visor de cálculo básico -->
+       
         <div class="display" id="display">0</div>
 
-                        <!-- Botões Calculadora -->
+                      
                           <div class="buttons">
                               <button onclick="clearDisplay()">C</button>
                               <button onclick="append('/')">÷</button>
@@ -39,7 +39,7 @@
                               <button onclick="append('.')">.</button>
                             </div>
 
-                          <!-- Controles para rotacionar o cubo entre modos -->
+                        
                             <div class="controls">
                               <button onclick="rotateTo(0)">Básica</button>
                               <button onclick="rotateTo(1)">Amostra</button>
@@ -50,28 +50,28 @@
 
 
 
-                        <!-- === Face 2: Tamanho da Amostra === -->
+                    
                           <div class="face amostra">
                       
-                              <!-- Visor para trocar entre média e proporção -->
+                            
                                   <div class="display" onclick="toggleTipoCalculoAmostraMenu()" style="position:relative; cursor:pointer;">
                                   <span id="amostra-display-text">Amostra: Média</span>
                                   </div>
 
-                              <!-- Menu flutuante para escolher tipo de cálculo de amostra -->
+                             
                                   <div id="amostra-tipo-menu">
                                   <button onclick="setTipoCalculoAmostra('media')">Média</button>
                                   <button onclick="setTipoCalculoAmostra('proporcao')">Proporção</button>
                                   </div>
 
-                                <!-- Select oculto para manter valor de estado (usado pelo JS) -->
+                               
                                   <select id="calculoTipo" onchange="updateAmostraFields()" style="display:none;">
                                   <option value="media">Média</option>
                                   <option value="proporcao">Proporção</option>
                                   </select>
 
           
-                                <!-- Campos específicos: Média ou Proporção -->
+                              
                                   <div id="amostra-media-fields">
                                   <label for="sigma">Desvio Padrão (σ):</label>
                                   <input type="number" id="sigma" />
@@ -82,7 +82,7 @@
                                   <input type="number" id="pAmostra" step="0.01" min="0" max="1" />
                                   </div>
 
-                                <!-- Margem de erro e nível de confiança -->
+                               
                                     <label for="e">Margem de Erro (E):</label>
                                     <input type="number" id="e" />
 
@@ -93,13 +93,13 @@
                                       <option value="2.576">99%</option>
                                     </select>
 
-                                  <!-- Botões calcular e limpar -->
+                                 
                                     <div class="sample-buttons">
                                     <button onclick="calcSampleSize()">Calcular n</button>
                                     <button onclick="clearSample()">Limpar</button>
                                     </div>
 
-                                  <!-- Mesmos controles de rotação do cubo -->
+                                  
                                     <div class="controls">
                                     <button onclick="rotateTo(0)">Básica</button>
                                     <button onclick="rotateTo(1)">Amostra</button>
@@ -111,28 +111,27 @@
 
 
 
-                                    <!-- === Face 3: Intervalo de Confiança === -->
+                                    
                                     <div class="face ic">
 
 
-                                      <!-- Visor interativo para troca de modo -->
+                                   
                                         <div class="display" onclick="toggleTipoCalculoMenu()" style="position:relative; cursor:pointer;">
                                         <span id="ic-display-text">IC: Média</span>
                                         </div>
 
-                                      <!-- Menu flutuante para Média/Proporção -->
+                                     
                                         <div id="ic-tipo-menu">
                                         <button onclick="setTipoCalculoIC('media')">Média</button>
                                         <button onclick="setTipoCalculoIC('proporcao')">Proporção</button>
                                         </div>
 
-                                      <!-- Select oculto para estado de cálculo de IC -->
                                         <select id="icTipoCalculo" onchange="updateICFields()" style="display:none;">
                                         <option value="media">Média</option>
                                         <option value="proporcao">Proporção</option>
                                         </select>
 
-                                      <!-- Campos para cálculo de IC por média -->
+                                     
                                         <div id="ic-media-fields">
                                         <label for="mean">Média (x̄):</label>
                                         <input type="number" id="mean" />
@@ -141,13 +140,13 @@
                                         <input type="number" id="stddev" />
                                         </div>
 
-                                      <!-- Campos para cálculo de IC por proporção -->
+                                  
                                         <div id="ic-proporcao-fields" style="display:none;">
                                         <label for="pIC">Proporção entre 0 e 1 (p̂):</label>
                                         <input type="number" id="pIC" step="0.01" min="0" max="1" />
                                         </div>
 
-                                      <!-- Tamanho da amostra e nível de confiança -->
+                                    
                                         <label for="n">Tamanho da Amostra (n):</label>
                                         <input type="number" id="n" />
 
@@ -158,13 +157,11 @@
                                         <option value="2.576">99%</option>
                                         </select>
 
-                                      <!-- Botões calcular e limpar IC -->
                                         <div class="sample-buttons">
                                         <button onclick="calcConfidenceInterval()">Calcular IC</button>
                                         <button onclick="clearIC()">Limpar</button>
                                         </div>
 
-                                      <!-- Controles finais para rotação -->
                                         <div class="controls">
                                         <button onclick="rotateTo(0)">Básica</button>
                                         <button onclick="rotateTo(1)">Amostra</button>
@@ -175,7 +172,6 @@
                                 </div>
 
 
-  <!-- Painel lateral fixo com fórmulas utilizadas -->
   <div class="formulas-panel">
     <h2>Fórmulas Utilizadas</h2>
     <h3>Tamanho de Amostra (Média)</h3>
